@@ -74,9 +74,7 @@ echo -e "\n--- Add environment variables to Apache ---\n"
 cat > /etc/apache2/sites-enabled/000-default.conf <<EOF
 Listen 81
 <VirtualHost *:80>
-    DocumentRoot /var/www
-    ErrorLog \${APACHE_LOG_DIR}/error.log
-    CustomLog \${APACHE_LOG_DIR}/access.log combined
+    
     SetEnv APP_ENV $APPENV
     SetEnv DB_HOST $DBHOST
     SetEnv DB_NAME $DBNAME
@@ -85,9 +83,7 @@ Listen 81
 </VirtualHost>
 
 <VirtualHost *:81>
-    DocumentRoot /var/www/YiiTest/frontend/web
-    ErrorLog \${APACHE_LOG_DIR}/error.log
-    CustomLog \${APACHE_LOG_DIR}/access.log combined
+   
     SetEnv APP_ENV $APPENV
     SetEnv DB_HOST $DBHOST
     SetEnv DB_NAME $DBNAME
